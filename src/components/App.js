@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Main, Auth, NotFound } from "../pages";
+import { Main, Auth, NotFound, SelectCategory } from "../pages";
 
 class App extends Component {
     render() {
@@ -9,6 +9,7 @@ class App extends Component {
                 <Switch>
                     <Route path="/" exact={true} component={Main} />
                     <Route path="/auth/:kind" exact={true} component={Auth} />
+                    <Route path="/selectCategory" exact={true} component={SelectCategory} />
                     <Route component={NotFound} />
                 </Switch>
             </div>

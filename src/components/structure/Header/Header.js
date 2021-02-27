@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 const Header = ({ onLogout }) => (
     <div className={cx("header")}>
         <Link to={"/"} className={cx("logo")}>
-            D-Note
+            시스템 제목
         </Link>
         <div className={cx("logout")}>
             <MdLock onClick={onLogout} />

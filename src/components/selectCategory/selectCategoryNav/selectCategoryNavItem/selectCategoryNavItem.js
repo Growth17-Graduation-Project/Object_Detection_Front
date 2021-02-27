@@ -9,22 +9,28 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 /* Styled Components */
-const ListItem= styled.ul`
+const Circle= styled.div`
+  float: left;
   font-size: 20px;
   font-weight: bold;
-  margin:0;
+  width: 15rem;
+  height: 15rem;
+  background: aliceblue;
+  border-radius: 50%;
+  margin: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
   
   &:hover {
-    background-color: white;
+    background-color: #FAFAFA;
+    box-shadow: 3px 3px 3px 3px darkgrey;
     color: black;
   };
   
 `;
 
 /* Main Component */
-const SideBarNavItem = props => {
+const selectCategoryNavItem = props => {
     /* Props */
     const {
         className,
@@ -34,19 +40,19 @@ const SideBarNavItem = props => {
 
     /* Renderer */
     return (
-        <ListItem className={ className }>
-            <NavLink to={ href }>
-                { label }
-            </NavLink>
-        </ListItem>
+        <Circle className={ className }>
+            {/*<NavLink to={ href }>*/}
+            {/*    { label }*/}
+            {/*</NavLink>*/}
+        </Circle>
     );
 }
 
 /* Main Component Settings */
-SideBarNavItem.propTypes = {
+selectCategoryNavItem.propTypes = {
     label: PropTypes.string,
     href: PropTypes.string,
 }
 
 /* Exports */
-export default SideBarNavItem;
+export default selectCategoryNavItem;

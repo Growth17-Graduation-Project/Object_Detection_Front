@@ -1,4 +1,3 @@
-/* src/layouts/Main/SideBar/SideBarNav/SideBarNav.js */
 /* React */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -7,17 +6,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 /* Sub Components */
-import SideBarNavItem from './SideBarNavItem';
+import SelectCategoryNavItem from './selectCategoryNavItem';
 
 /* Styled Components */
 const List = styled.ul`
-  margin:0;
-  padding: 0;
+  margin-right:10%;
+  padding: 1rem;
   height: 100%;
 `;
 
 /* Main Compoent */
-const SideBarNav = props => {
+const selectCategoryNav = props => {
     /* Props */
     const {
         className,
@@ -29,7 +28,7 @@ const SideBarNav = props => {
         <List className={ className }>
             {
                 items && items.map((opt, idx)=>(
-                    <SideBarNavItem key={ idx } { ...opt }/>
+                    <SelectCategoryNavItem key={ idx } { ...opt }/>
                 ))
             }
         </List>
@@ -37,10 +36,10 @@ const SideBarNav = props => {
 }
 
 /* Main Component Settings */
-SideBarNav.propTypes = {
+selectCategoryNav.propTypes = {
     className: PropTypes.string,
     items: PropTypes.array,
 }
 
 /* Exports */
-export default SideBarNav;
+export default selectCategoryNav;

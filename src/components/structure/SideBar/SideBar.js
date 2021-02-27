@@ -16,12 +16,13 @@ const Container = styled.div`
   height: 100%;
   width: 240px;
   background-color: darkgrey;
+  margin:0;
 `;
 
 /* Constant Variables */
 const items = [
     { label: "홈", href: "/home" },
-    { label: "게시판", href: "/board" },
+    { label: "시작하기", href: "/selectCategory" },
     { label: "상품", href: "/product" }
 ];
 
@@ -35,7 +36,6 @@ const SideBar = props => {
     /* Renderer */
     return (
         <Container className={ className }>
-            SideBar
             <SideBarNav items={ items } />
         </Container>
     );
