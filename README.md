@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 폴더
+containers: 리액트 컨테이너 파일들 집합<br>
+components: 리액트 컴포넌트 파일들 집합<br>
+pages: Routing에서 사용될 page 파일들 집합<br>
+store: redux모듈들과 configure파일들 집합<br>
+
+## 나중에 리덕스 설정하고싶으면
+
+https://velog.io/@killi8n/3-3.-React-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EA%B5%AC%EC%A1%B0-%EC%9E%A1%EA%B8%B0.-Redux-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0-58jmbkes4x
+
 ## Available Scripts
 
 In the project directory, you can run:

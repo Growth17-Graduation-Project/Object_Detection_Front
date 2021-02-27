@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "./styles/index.scss";
+//import registerServiceWorker from "./registerServiceWorker";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//리덕스 쓰고싶으면 밑에 두줄 주석 해제
+import Root from "./Root";
+ReactDOM.render(<Root />, document.getElementById("root"));
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+
+//ReactDOM.render(<div>도현체</div>, document.getElementById("root"));
+//registerServiceWorker();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
