@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 const Header = ({ onLogout }) => (
     <div className={cx("header")}>
-        <Link to={"/"} className={cx("logo")}>
+        <Link to={"/home"} className={cx("logo")}>
             시스템 제목
         </Link>
         <div className={cx("logout")}>

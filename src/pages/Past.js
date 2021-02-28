@@ -1,11 +1,10 @@
 import React from "react";
 import MainStructure from "../components/structure/MainStructure";
-import NoteContainer from "../containers/NoteContainer";
 
-const Memo = () => {
+const Past = () => {
     return <MainStructure>
-        <NoteContainer />
+        과거기록보기페이지
     </MainStructure>;
 };
 
-export default Memo;
+export default Past;

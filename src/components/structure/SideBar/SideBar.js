@@ -24,7 +24,7 @@ const Container = styled.div`
 const items = [
     { label: "홈", href: "/home" },
     { label: "시작하기", href: "/selectCategory" },
-    { label: "과거기록보기", href: "/product" },
+    { label: "과거기록보기", href: "/past" },
     { label: "메모", href: "/memo" }
 ];
 

@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Main, Auth, NotFound, SelectCategory } from "../pages";
+import { Main, Auth, NotFound, SelectCategory, Home, Memo, Past } from "../pages";
 
 class App extends Component {
     render() {
         return (
             <div>
                 <Switch>
-                    <Route path="/" exact={true} component={Main} />
+                    <Route path="/" exact={true} component={Home} />
+                    <Route path="/home" exact={true} component={Main} />
                     <Route path="/auth/:kind" exact={true} component={Auth} />
                     <Route path="/selectCategory" exact={true} component={SelectCategory} />
+                    <Route path="/memo" exact={true} component={Memo} />
+                    <Route path="/past" exact={true} component={Past} />
                     <Route component={NotFound} />
                 </Switch>
             </div>
