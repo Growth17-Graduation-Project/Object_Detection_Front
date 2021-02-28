@@ -12,7 +12,7 @@ import SideBarNavItem from './SideBarNavItem';
 /* Styled Components */
 const List = styled.ul`
   margin:0;
-  padding: 0;
+  padding:0;
   height: 100%;
 `;
 

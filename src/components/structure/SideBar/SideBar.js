@@ -12,11 +12,11 @@ import SideBarNav from './SideBarNav';
 /* Styled Components */
 const Container = styled.div`
   position: fixed;
+  margin-top: 5rem;
   left: 0;
   height: 100%;
   width: 240px;
   background-color: darkgrey;
-  margin:0;
 `;
 
 /* Constant Variables */

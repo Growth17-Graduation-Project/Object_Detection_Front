@@ -10,7 +10,7 @@ import SelectCategoryNavItem from './selectCategoryNavItem';
 
 /* Styled Components */
 const List = styled.ul`
-  margin-right:10%;
+  margin: 0;
   padding: 1rem;
   height: 100%;
 `;
@@ -22,6 +22,9 @@ const selectCategoryNav = props => {
         className,
         items,
     } = props;
+
+
+
 
     /* Renderer */
     return (

@@ -1,11 +1,15 @@
 @import "/src/styles/utils.scss";
 
 .header {
-  background: navy;
+  background: #0B0B3B;
   height: 5rem;
-
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  /* width: 100% */
+  left: 0;
+  right: 0;
 
   .logo {
     color: white;

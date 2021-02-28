@@ -1,23 +1,38 @@
 /* React */
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+
 
 /* Styled */
 import styled from 'styled-components';
 
 /* Sub Components */
 import SelectCategoryNav from './selectCategoryNav';
+import BigCategoryNav from "./bigCategoryNav";
 
 /* Styled Components */
-const Container = styled.circle`
-  position: fixed;
-  margin-left:240px;
+const Container = styled.div`
+  margin: 0;
+  padding: 0;
   left: 0;
-  height: 100%;
-  width: 100%
+  width: 100%;
 `;
 
 /* Constant Variables */
+const bigItems = [
+    { label: "dddf", href: "/home" },
+    { label: "시작f하기", href: "/selectCategory" },
+    { label: "f상품", href: "/product" },
+    { label: "dd", href: "/home" },
+    { label: "시작f하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "fdd", href: "/home" },
+    { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "dd", href: "/home" }
+];
+
+
 const items = [
     { label: "dd", href: "/home" },
     { label: "시작하기", href: "/selectCategory" },
@@ -36,7 +51,27 @@ const items = [
     { label: "상품", href: "/product" },
     { label: "dd", href: "/home" },
     { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "dd", href: "/home" },
+    { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "dd", href: "/home" },
+    { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "dd", href: "/home" },
+    { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "dd", href: "/home" },
+    { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "dd", href: "/home" },
+    { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
+    { label: "dd", href: "/home" },
+    { label: "시작하기", href: "/selectCategory" },
+    { label: "상품", href: "/product" },
     { label: "상품", href: "/product" }
+
 
 ];
 
@@ -47,10 +82,13 @@ const SelectCategory = props => {
         className,
     } = props;
 
+
+
     /* Renderer */
     return (
         <Container className={ className }>
-            <SelectCategoryNav items={ items } />
+            <BigCategoryNav items = { bigItems } />
+            <SelectCategoryNav items = { items } />
         </Container>
     );
 }
