@@ -9,6 +9,7 @@ import styled from 'styled-components';
 /* Sub Components */
 import SelectCategoryNav from './selectCategoryNav';
 import BigCategoryNav from "./bigCategoryNav";
+import Button from "./button";
 
 /* Styled Components */
 const Container = styled.div`
@@ -89,6 +90,7 @@ const SelectCategory = props => {
         <Container className={ className }>
             <BigCategoryNav items = { bigItems } />
             <SelectCategoryNav items = { items } />
+            <Button />
         </Container>
     );
 }

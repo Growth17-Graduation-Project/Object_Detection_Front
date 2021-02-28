@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 /* Sub Components */
 import SideBarNav from './SideBarNav';
+import PersonBar from "./PersonBar";
 
 /* Styled Components */
 const Container = styled.div`
@@ -23,7 +24,8 @@ const Container = styled.div`
 const items = [
     { label: "홈", href: "/home" },
     { label: "시작하기", href: "/selectCategory" },
-    { label: "상품", href: "/product" }
+    { label: "과거기록보기", href: "/product" },
+    { label: "메모", href: "/memo" }
 ];
 
 /* Main Compoent */
@@ -36,6 +38,7 @@ const SideBar = props => {
     /* Renderer */
     return (
         <Container className={ className }>
+            <PersonBar />
             <SideBarNav items={ items } />
         </Container>
     );
