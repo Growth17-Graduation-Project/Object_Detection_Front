@@ -1,11 +1,12 @@
 import React from "react";
 import MainStructure from "../components/structure/MainStructure";
-import NoteContainer from "../containers/NoteContainer";
+import Record from "../components/record";
 
-const Memo = () => {
+
+const Past = () => {
     return <MainStructure>
-        <NoteContainer />
+        <Record />
     </MainStructure>;
 };
 
-export default Memo;
+export default Past;

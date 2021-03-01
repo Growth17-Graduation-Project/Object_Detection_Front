@@ -12,7 +12,6 @@ import SelectCategoryNavItem from './selectCategoryNavItem';
 const List = styled.ul`
   margin: 0;
   padding: 1rem;
-  height: 100%;
 `;
 
 /* Main Compoent */

@@ -5,7 +5,7 @@
   flex-direction: column;
   margin-bottom: 1rem;
   .title {
-    border-bottom: 1px solid $oc-gray-8;
+    border-bottom: 1px solid grey;
     padding-bottom: 0.75rem;
 
     font-size: 1.25rem;
@@ -15,7 +15,7 @@
   input {
     margin-top: 0.75rem;
     height: 2.5rem;
-    border: 1px solid $oc-gray-5;
+    border: 1px solid gray;
     border-radius: 2px;
 
     outline: none;
@@ -23,7 +23,7 @@
     font-size: 1.5rem;
     padding: 0.25rem;
 
-    background: $oc-gray-5;
+    background: grey;
 
     color: white;
     font-weight: 600;

@@ -7,9 +7,6 @@
   flex-direction: column;
 
   width: 1024px;
-  @include media("<medium") {
-    width: 95%;
-  }
 
   padding-top: 1rem;
   padding-bottom: 1rem;

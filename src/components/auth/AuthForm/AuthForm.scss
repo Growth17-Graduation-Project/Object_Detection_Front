@@ -6,16 +6,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  border: 3px solid $oc-gray-6;
+  border: 3px solid gray;
   border-radius: 3px;
   width: 512px;
 
-  @include media("<medium") {
-    width: 100%;
-    border: none;
-    top: 0%;
-    transform: translate(-50%, 0%);
-  }
+
 
   padding: 1rem;
   .title {
@@ -34,7 +29,7 @@
     .message {
       font-size: 1.25rem;
       font-weight: 500;
-      color: $oc-red-7;
+      color: grey;
     }
   }
 
@@ -51,7 +46,7 @@
     input {
       height: 3rem;
       outline: none;
-      border: 1px solid $oc-gray-6;
+      border: 1px solid grey;
       border-radius: 2px;
       font-size: 1.5rem;
       padding: 0.5rem;
@@ -66,10 +61,10 @@
 
   .auth-button {
     // height: 3rem;
-    background: $oc-violet-7;
+    background: purple;
 
     margin-top: 2rem;
-    border: 1px solid $oc-violet-7;
+    border: 1px solid purple;
     border-radius: 2px;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -86,11 +81,11 @@
     user-select: none;
 
     &:hover {
-      background: $oc-violet-8;
+      background: grey;
     }
 
     &:active {
-      background: $oc-violet-7;
+      background: grey;
     }
   }
 
@@ -102,10 +97,8 @@
     flex-direction: row-reverse;
 
     font-size: 1.2rem;
-    color: $oc-blue-7;
+    color: blue;
 
-    @include media("<medium") {
-      justify-content: center;
-    }
+
   }
 }
