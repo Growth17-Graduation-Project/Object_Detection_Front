@@ -1,9 +1,11 @@
 import React from "react";
 import MainStructure from "../components/structure/MainStructure";
+import Record from "../components/record";
+
 
 const Past = () => {
     return <MainStructure>
-        과거기록보기페이지
+        <Record />
     </MainStructure>;
 };
 
