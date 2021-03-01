@@ -1,5 +1,5 @@
 /* React */
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
 /* Router */
@@ -30,8 +30,29 @@ const Circle= styled.div`
   
 `;
 
+
+
+const handleDelete = () => {
+    console.info('You clicked the delete icon.');
+};
+
+
+
+
 /* Main Component */
-const selectCategoryNavItem = props => {
+//const selectCategoryNavItem = props => {
+function selectCategoryNavItem (props ){
+
+//class selectCategoryNavItem extends Component{
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [color, setColor] = useState('');
+
+    const handleClick = () => {
+        setColor('black');
+        Circle.background = 'black';
+        console.info('You clicked the Chip.');
+    };
     /* Props */
     const {
         className,
@@ -39,9 +60,11 @@ const selectCategoryNavItem = props => {
         href,
     } = props;
 
+
+
     /* Renderer */
     return (
-        <Circle className={ className }>
+        <Circle className={ className } onClick={handleClick} onDelete={handleDelete}>
             {/*<NavLink to={ href }>*/}
             {/*    { label }*/}
             {/*</NavLink>*/}

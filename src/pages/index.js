@@ -5,3 +5,4 @@ export { default as NotFound } from "./NotFound";
 export { default as Home } from "./Home";
 export { default as Memo } from "./Memo";
 export { default as Past } from "./Past";
+export { default as LiveCam } from "./LiveCam";
