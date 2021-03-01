@@ -15,22 +15,26 @@ export class AuthContainer extends Component {
         }
     }
 
+    // eslint-disable-next-line no-undef
     initialize = () => {
         const { initializeInput, initializeError } = this.props;
         initializeError();
         initializeInput();
     };
 
+    // eslint-disable-next-line no-undef
     handleChangeInput = ({ name, value }) => {
         const { changeInput } = this.props;
         changeInput({ name, value });
     };
 
+    // eslint-disable-next-line no-undef
     handleLogin = () => {
         const { login } = this.props;
         login();
     };
 
+    // eslint-disable-next-line no-undef
     handleRegister = () => {
         const { register } = this.props;
         register();

@@ -12,9 +12,9 @@ import BigCategoryNavItem from './bigCategoryNavItem';
 const List = styled.ul`
   background-color: lightgrey;
   margin: 1rem;
-  padding: 1rem;
-  height: 5%;
-  width: 100%;
+  padding: 0;
+  width: -240px;
+  box-shadow: 1px 1px 1px dimgrey;
 `;
 
 /* Main Compoent */

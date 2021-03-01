@@ -15,16 +15,17 @@ const Circle= styled.div`
   font-weight: bold;
   width: 15rem;
   height: 15rem;
-  background: aliceblue;
-  border-radius: 50%;
+  background: #F3F3F4;
+  border-radius: 30%;
   margin: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
   
   &:hover {
-    background-color: #FAFAFA;
+    background-color: #E1E3EA;
     box-shadow: 3px 3px 3px 3px darkgrey;
     color: black;
+    cursor: pointer;
   };
   
 `;

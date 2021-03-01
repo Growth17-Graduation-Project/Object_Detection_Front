@@ -13,12 +13,14 @@ const TopItem = styled.div`
   float: left;
   font-size: 20px;
   font-weight: bold;
+  background-color: lightgrey;
   width: 10rem;
-  height: 3rem;
+  height: 2.9rem;
 
   &:hover {
-    background-color: #FAFAFA;
-    box-shadow: 3px 3px 3px 3px darkgrey;
+    background-color: darkgrey;
+    border-radius: 0.3em;
+    //box-shadow: 2px 2px 2px 2px dimgrey;
     color: black;
   };
 

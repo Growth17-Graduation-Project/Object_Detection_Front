@@ -6,11 +6,13 @@ import NoteWrapper from "../components/notes/NoteWrapper";
 import * as noteActions from "../store/modules/notes";
 
 export class NoteContainer extends Component {
+    // eslint-disable-next-line no-undef
     handleChange = ({ value }) => {
         const { changeNoteInput } = this.props;
         changeNoteInput({ value });
     };
 
+    // eslint-disable-next-line no-undef
     addNote = () => {
         const { addNote } = this.props;
         addNote();

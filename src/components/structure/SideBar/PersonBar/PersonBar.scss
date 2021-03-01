@@ -1,13 +1,11 @@
 .PersonBar{
   width: 240px;
   height: 300px;
-  border: 1px solid black;
-
+  padding:0;
+  margin: 0;
+  border: 1px solid darkgrey;
   .PersonImage{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 50px;
-    margin-rignt: 50px;
+    margin: 30px 50px;
     width: 140px;
     height: 140px;
     border-radius: 30%;
@@ -30,5 +28,6 @@
     text-align: center;
     text-decoration: underline;
     cursor: pointer;
+    border-bottom: 1px solid black;
   }
 }

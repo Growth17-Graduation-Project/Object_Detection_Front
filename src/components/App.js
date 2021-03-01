@@ -1,21 +1,42 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import { Main, Auth, NotFound, SelectCategory, Home, Memo, Past } from "../pages";
+import '../styles/index.scss'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    backgroundColor: '#0B0B3B',
+
+    palette: {
+        primary: {
+            main: '#0B0B3B'
+        },
+        secondary: {
+            main: '#E33E7F'
+        },
+        typography: {
+            fontFamily: "Do hyeon",
+        }
+    }
+});
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <Switch>
-                    <Route path="/" exact={true} component={Home} />
-                    <Route path="/home" exact={true} component={Main} />
-                    <Route path="/auth/:kind" exact={true} component={Auth} />
-                    <Route path="/selectCategory" exact={true} component={SelectCategory} />
-                    <Route path="/memo" exact={true} component={Memo} />
-                    <Route path="/past" exact={true} component={Past} />
-                    <Route component={NotFound} />
-                </Switch>
-            </div>
+            <MuiThemeProvider theme={theme}>
+                <div>
+                    <Switch>
+                        <Route path="/" exact={true} component={Home} />
+                        <Route path="/home" exact={true} component={Main} />
+                        <Route path="/auth/:kind" exact={true} component={Auth} />
+                        <Route path="/selectCategory" exact={true} component={SelectCategory} />
+                        <Route path="/memo" exact={true} component={Memo} />
+                        <Route path="/past" exact={true} component={Past} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </div>
+            </MuiThemeProvider>
+
         );
     }
 }
