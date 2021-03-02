@@ -7,3 +7,4 @@ export { default as Memo } from "./Memo";
 export { default as Past } from "./Past";
 export { default as LiveCam } from "./LiveCam";
 export { default as PastDetail } from "./PastDetail";
+export { default as SignUp } from "./SignUp";
