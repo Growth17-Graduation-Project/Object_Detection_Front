@@ -75,7 +75,7 @@ export default function CustomizedTables() {
                     {rows.map((row) => (
                         <StyledTableRow key={row.name}>
                             <StyledTableCell component="th" scope="row">
-                                <NavLink to='/home' >
+                                <NavLink to='/past/detail' >
                                     {row.name}
                                 </NavLink>
                             </StyledTableCell>

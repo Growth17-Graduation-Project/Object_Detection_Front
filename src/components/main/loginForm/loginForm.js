@@ -23,7 +23,7 @@ function Copyright() {
             {/*</Link>{' '}*/}
             {/*{new Date().getFullYear()}*/}
             {/*{'.'}*/}
-            @EWHA CSE
+            @EWHA DEEPDEEP
         </Typography>
     );
 }
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "white",
         borderRadius: '0.5em',
         boxShadow: '3px 3px 3px black',
-        marginTop: '150px',
+        // marginTop: '150px',
     },
     paper: {
         marginTop: theme.spacing(8),
@@ -62,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
     },
     palette: {
         primary: '#0B0B3B',
+    },
+    item: {
+        alignContent: 'right',
     },
 }));
 
@@ -126,12 +129,12 @@ export default function SignIn() {
                     </Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
-                                비밀번호 찾기
-                            </Link>
+                        {/*    <Link href="#" variant="body2">*/}
+                        {/*        비밀번호 찾기가필요한가?*/}
+                        {/*    </Link>*/}
                         </Grid>
-                        <Grid item>
-                            <Link href="#" variant="body2">
+                        <Grid item xs>
+                            <Link href="/signUp" variant="body2" justify="flex-end">
                                 {"회원가입"}
                             </Link>
                         </Grid>
