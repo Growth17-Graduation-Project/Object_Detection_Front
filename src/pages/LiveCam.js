@@ -1,9 +1,10 @@
 import React from "react";
 import MainStructure from "../components/structure/MainStructure";
+import LiveCamera from "../components/liveCam"
 
 const LiveCam = () => {
     return <MainStructure>
-        영상 송출
+        <LiveCamera> </LiveCamera>
     </MainStructure>;
 };
 

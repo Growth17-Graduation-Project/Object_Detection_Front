@@ -10,7 +10,7 @@ import Detail from './detail';
 
 /* Styled Components */
 const List = styled.ul`
-  margin: 0;
+  margin-top: 0;
   padding: 1rem;
 `;
 
