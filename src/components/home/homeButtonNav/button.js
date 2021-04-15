@@ -100,6 +100,9 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonBases() {
     const classes = useStyles();
 
+    const bodyElt = document.querySelector("body");
+    bodyElt.style.backgroundColor = "white";
+
     return (
         <div className={classes.root}>
             {images.map((image) => (

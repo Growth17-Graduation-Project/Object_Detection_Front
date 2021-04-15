@@ -7,24 +7,32 @@ import styled from 'styled-components';
 
 /* Sub Components */
 import Detail from './detail';
+import { makeStyles } from "@material-ui/core/styles";
 
-/* Styled Components */
-const List = styled.ul`
-  margin-top: 0;
-  padding: 1rem;
-`;
+// /* Styled Components */
+// const List = styled.ul`
+//   margin: 0;
+//   padding: 1rem;
+//   align-items: center;
+// `;
+//
+// /* Main Compoent */
+// const detailCardContainer = props => {
+//     /* Props */
+//     // const {
+//     //     className,
+//     //     items,
+//     // } = props;
 
-/* Main Compoent */
-const detailCardContainer = props => {
-    /* Props */
-    // const {
-    //     className,
-    //     items,
-    // } = props;
+const useStyles = makeStyles({
+    container: {
+        boxShadow: '0px 0px solid white',
+        padding: 50,
+    },
+});
 
-
-
-
+export default function DetailCardContainer() {
+    const classes = useStyles();
     /* Renderer */
     return (
         // <List className={ className }>
@@ -34,7 +42,7 @@ const detailCardContainer = props => {
         //         ))
         //     }
         // </List>
-        <List>
+        <div className={ classes.container }>
             <Detail />
             <Detail />
             <Detail />
@@ -44,7 +52,8 @@ const detailCardContainer = props => {
             <Detail />
             <Detail />
             <Detail />
-        </List>
+            <Detail />
+        </div>
     );
 }
 
@@ -55,4 +64,4 @@ const detailCardContainer = props => {
 // }
 
 /* Exports */
-export default detailCardContainer;
+//export default detailCardContainer;

@@ -169,6 +169,35 @@ export default function SignUp() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            fetch('http://localhost:8000/api/create/', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    email: email,
+                                    username: firstName,
+                                    realUserName: b,
+                                    birthDate: c,
+                                    password: password
+                                })
+                            })
+                                .then(res => res.json())
+                                .then(json => {
+                                    // user data와 token정보가 일치하면 로그인 성공
+                                    if (json.success === 'True') {
+                                        sessionStorage.setItem('wtw-token', json.token)
+                                        //props.userHasAuthenticated(true, json.user.email, json.token);
+                                        history.push("/home");
+                                        //props.setModal(true)
+                                        alert("반갑습니다 :)")
+                                    } else {
+                                        alert("아이디 또는 비밀번호를 확인해주세요.")
+                                    }
+                                })
+                                .catch(error => alert(error));}}
                     >
                         회원 가입
                     </Button>
