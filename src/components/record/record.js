@@ -31,6 +31,10 @@ function createData(name, startDate, endDate, num, others) {
     return { name, startDate, endDate, num, others };
 }
 
+const data = [
+
+]
+
 const rows = [
     createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
     createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, '000촬영'),

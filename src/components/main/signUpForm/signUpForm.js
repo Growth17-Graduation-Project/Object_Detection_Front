@@ -201,7 +201,7 @@ export default function SignUp() {
                         className={classes.submit}
                         onClick={(e) => {
                             e.preventDefault()
-                            fetch('http://localhost:8000/api/create/', {
+                            fetch('http://localhost:8000/api/signup', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'
