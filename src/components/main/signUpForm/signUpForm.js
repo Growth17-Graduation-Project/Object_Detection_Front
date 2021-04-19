@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {useHistory} from "react-router";
 
 function Copyright() {
     return (
@@ -58,6 +59,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+    const history = useHistory()
+
+    let [email, setEmail] = useState()
+    let [username, setUsername] = useState()
+    let [realUserName, setRealUserName] = useState()
+    let [birthDate, setBirthDate] = useState()
+    let [password, setPassword] = useState()
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
+    }
+    const handleUserNameChange = (e) => {
+        setUsername(e.target.value)
+    }
+    const handleRealUserNameChange = (e) => {
+        setRealUserName(e.target.value)
+    }
+    const handleBirthDateChange = (e) => {
+        setBirthDate(e.target.value)
+    }
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value)
+    }
+
     const classes = useStyles();
 
     return (
@@ -74,14 +99,15 @@ export default function SignUp() {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
-                                autoComplete="fname"
-                                name="firstName"
+                                autoComplete="realUserName"
+                                name="realUserName"
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="firstName"
+                                id="realUserName"
                                 label="이름"
                                 autoFocus
+                                onChange={handleRealUserNameChange}
                             />
                         </Grid>
                         {/*<Grid item xs={12} sm={6}>*/}
@@ -100,10 +126,11 @@ export default function SignUp() {
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="id"
+                                id="username"
                                 label="아이디"
-                                name="id"
+                                name="username"
                                 autoComplete="id"
+                                onChange={handleUserNameChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -128,6 +155,7 @@ export default function SignUp() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
+                                onChange={handlePasswordChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -139,12 +167,13 @@ export default function SignUp() {
                                 label="이메일 주소"
                                 name="email"
                                 autoComplete="email"
+                                onChange={handleEmailChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <form className={classes.container} noValidate>
                                 <TextField
-                                    id="date"
+                                    id="birthDate"
                                     label="생년월일"
                                     type="date"
                                     defaultValue="2000-01-01"
@@ -152,6 +181,7 @@ export default function SignUp() {
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
+                                    onChange={handleBirthDateChange}
                                 />
                             </form>
                         </Grid>
@@ -169,6 +199,35 @@ export default function SignUp() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            fetch('http://localhost:8000/api/create/', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    email: email,
+                                    username: username,
+                                    realUserName: realUserName,
+                                    birthDate: "2020-11-11",
+                                    password: password
+                                })
+                            })
+                                .then(res => res.json())
+                                .then(json => {
+                                    // user data와 token정보가 일치하면 로그인 성공
+                                    alert(email)
+                                    if (json.message === 'ok') {
+                                        //props.userHasAuthenticated(true, json.user.email, json.token);
+                                        history.push("/");
+                                        //props.setModal(true)
+                                        alert("회원가입이 완료되었습니다.")
+                                    } else {
+                                        alert("회원가입에 실패하였습니다. 정보를 다시 확인해주세요.")
+                                    }
+                                })
+                                .catch(error => alert(error));}}
                     >
                         회원 가입
                     </Button>
