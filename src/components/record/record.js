@@ -70,19 +70,6 @@ export default function CustomizedTables() {
     if (error) return <div>에러가 발생했습니다</div>;
     if (!records) return null;
 
-
-    // fetch('http://localhost:8000/api/home/record')
-    //     .then(response => response.json())
-    //     .then(data =>
-    //         // this.setState({
-    //         //     record: data.data,
-    //         //     isLoading: false,
-    //         // })
-    //         console.log(data)
-    //     )
-    //     .catch(error => this.setState({error, isLoading: false}));
-
-
     return (
         <TableContainer component={Paper} className={classes.container}>
             <Table className={classes.table} aria-label="customized table">
@@ -99,7 +86,7 @@ export default function CustomizedTables() {
                     {records.map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell component="th" scope="row">
-                                <NavLink to='/past/detail'>
+                                <NavLink to={`/past/detail/${row.id}`}>
                                     {row.title}
                                 </NavLink>
                             </StyledTableCell>
