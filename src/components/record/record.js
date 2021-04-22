@@ -1,5 +1,5 @@
-import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import React, {useEffect, useState} from 'react';
+import {withStyles, makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {NavLink} from "react-router-dom";
+import axios from 'axios';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -27,28 +28,6 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-function createData(name, startDate, endDate, num, others) {
-    return { name, startDate, endDate, num, others };
-}
-
-const data = [
-
-]
-
-const rows = [
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, '000촬영'),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-    createData('공학도서관 아산공학관쪽 문 ', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-0 23:34' , '2020-01-02 23:44', 24, '22분간 촬영'),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-    createData('중앙도서관 1번 게이트 앞', '2020-01-02 23:34' , '2020-01-02 23:44', 24, ),
-
-];
-
 const useStyles = makeStyles({
     container: {
         boxShadow: '0px 0px solid white',
@@ -63,8 +42,49 @@ const useStyles = makeStyles({
 export default function CustomizedTables() {
     const classes = useStyles();
 
+    const [records, setRecords] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchRecords = async () => {
+            try {
+                // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+                setError(null);
+                setRecords(null);
+                // loading 상태를 true 로 바꿉니다.
+                setLoading(true);
+                const response = await axios.get(
+                    'http://localhost:8000/api/home/record'
+                );
+                setRecords(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+            } catch (e) {
+                setError(e);
+            }
+            setLoading(false);
+        };
+        fetchRecords();
+    }, []);
+
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!records) return null;
+
+
+    // fetch('http://localhost:8000/api/home/record')
+    //     .then(response => response.json())
+    //     .then(data =>
+    //         // this.setState({
+    //         //     record: data.data,
+    //         //     isLoading: false,
+    //         // })
+    //         console.log(data)
+    //     )
+    //     .catch(error => this.setState({error, isLoading: false}));
+
+
     return (
-        <TableContainer component={Paper} className = {classes.container}>
+        <TableContainer component={Paper} className={classes.container}>
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
@@ -76,17 +96,17 @@ export default function CustomizedTables() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.name}>
+                    {records.map((row) => (
+                        <StyledTableRow key={row.id}>
                             <StyledTableCell component="th" scope="row">
-                                <NavLink to='/past/detail' >
-                                    {row.name}
+                                <NavLink to='/past/detail'>
+                                    {row.title}
                                 </NavLink>
                             </StyledTableCell>
-                            <StyledTableCell align="right">{row.startDate}</StyledTableCell>
-                            <StyledTableCell align="right">{row.endDate}</StyledTableCell>
-                            <StyledTableCell align="right">{row.num}</StyledTableCell>
-                            <StyledTableCell align="right">{row.others}</StyledTableCell>
+                            <StyledTableCell align="right">{row.startTime}</StyledTableCell>
+                            <StyledTableCell align="right">{row.endTime}</StyledTableCell>
+                            <StyledTableCell align="right">{row.recordNum}</StyledTableCell>
+                            <StyledTableCell align="right">{row.etc}</StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>

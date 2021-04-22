@@ -164,5 +164,7 @@
       "react-app"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "axios": "^0.21.1"
+  }
 }
