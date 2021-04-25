@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import Detail from './detail';
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
-import {NavLink, useParams} from "react-router-dom";
+import {NavLink, useHistory, useParams} from "react-router-dom";
 import {List} from "@material-ui/core";
 
 // /* Styled Components */
@@ -49,12 +49,19 @@ const useStyles = makeStyles({
 
 export default function DetailCardContainer() {
     const classes = useStyles();
+    const history = useHistory();
 
     const { id } = useParams()
 
     const [detailRecords, setDetailRecords] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+
+    if (!sessionStorage.getItem("token")) {
+        alert("로그인이 필요한 서비스입니다.");
+        history.push('/');
+    }
+
 
     useEffect(() => {
         const fetchDetailRecords = async () => {

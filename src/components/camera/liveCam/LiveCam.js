@@ -1,12 +1,14 @@
 import React from "react";
 import Webcam from "react-webcam";
 import ReactDOM from "react-dom"
+import {useHistory} from "react-router-dom";
 
 const WebcamStreamCapture = () => {
     const webcamRef = React.useRef(null);
     const mediaRecorderRef = React.useRef(null);
     const [capturing, setCapturing] = React.useState(false);
     const [recordedChunks, setRecordedChunks] = React.useState([]);
+
 
     const handleStartCaptureClick = React.useCallback(() => {
         setCapturing(true);

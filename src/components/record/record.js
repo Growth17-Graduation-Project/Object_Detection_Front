@@ -7,8 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import axios from 'axios';
+
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -41,10 +42,16 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
     const classes = useStyles();
+    const history = useHistory();
 
     const [records, setRecords] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+
+    if (!sessionStorage.getItem("token")) {
+        alert("로그인이 필요한 서비스입니다.");
+        history.push('/');
+    }
 
     useEffect(() => {
         const fetchRecords = async () => {
