@@ -31,12 +31,15 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
     container: {
-        boxShadow: '0px 0px solid white',
-        padding: 50,
+        // margin: 0,
+        // marginLeft: 30,
+        // marginRight:30,
+        padding:30,
     },
     table: {
+        boxShadow: 0,
         borderRadius: 5,
-        minWidth: 500,
+        minWidth: 300,
     },
 });
 
