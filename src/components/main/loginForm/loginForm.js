@@ -19,13 +19,7 @@ import {getCLS} from "web-vitals";
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {/*{'Copyright © '}*/}
-            {/*<Link color="inherit" href="https://material-ui.com/">*/}
-            {/*    Your Website*/}
-            {/*</Link>{' '}*/}
-            {/*{new Date().getFullYear()}*/}
-            {/*{'.'}*/}
+        <Typography variant="body2" color="textSecondary" align="center" marginBottom='3px'>
             @EWHA DEEPDEEP
         </Typography>
     );
@@ -65,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
     },
     loginText: {
         marginTop: theme.spacing(3.5),
+    },
+    signupText: {
+        float: 'right',
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -192,14 +189,14 @@ export default function SignIn(props) {
                         로그인
                     </Button>
                     <Grid container>
+                        {/*<Grid item xs>*/}
+                        {/*    /!*    <Link href="#" variant="body2">*!/*/}
+                        {/*    /!*        비밀번호 찾기가필요한가?*!/*/}
+                        {/*    /!*    </Link>*!/*/}
+                        {/*</Grid>*/}
                         <Grid item xs>
-                            {/*    <Link href="#" variant="body2">*/}
-                            {/*        비밀번호 찾기가필요한가?*/}
-                            {/*    </Link>*/}
-                        </Grid>
-                        <Grid item xs>
-                            <Link href="/signUp" variant="body2" justify="flex-end">
-                                {"회원가입"}
+                            <Link href="/signUp" variant="body2" justify="flex-end" className={classes.signupText}>
+                                {"회원가입하기"}
                             </Link>
                         </Grid>
                     </Grid>
