@@ -52,10 +52,12 @@ export default function CustomizedTables() {
                 // 요청이 시작 할 때에는 error 와 users 를 초기화하고
                 setError(null);
                 setRecords(null);
-                // loading 상태를 true 로 바꿉니다.
                 setLoading(true);
+                let token = sessionStorage.getItem('token');
+                console.log(token);
                 const response = await axios.get(
-                    'http://localhost:8000/api/home/record'
+                    'http://localhost:8000/api/home/record',
+                     {headers: {"Authorization": `Bearer ${token}`}}
                 );
                 setRecords(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {
