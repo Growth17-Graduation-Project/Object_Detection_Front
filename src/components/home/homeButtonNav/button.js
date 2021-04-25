@@ -2,7 +2,10 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
+import {Router} from "@material-ui/icons";
+
+
 
 
 const images = [
@@ -99,9 +102,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonBases() {
     const classes = useStyles();
+    const history = useHistory();
 
     const bodyElt = document.querySelector("body");
     bodyElt.style.backgroundColor = "white";
+
+    if (!sessionStorage.getItem("token")) {
+        alert("로그인이 필요한 서비스입니다.");
+        history.push('/');
+    }
 
     return (
         <div className={classes.root}>

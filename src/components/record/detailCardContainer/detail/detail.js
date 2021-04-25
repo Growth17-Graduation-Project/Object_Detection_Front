@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function MediaCard() {
+export default function MediaCard({detectedItem, image, captureTime}) {
     const classes = useStyles();
 
     return (
@@ -32,11 +32,10 @@ export default function MediaCard() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
+                        {detectedItem}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        {captureTime}   적발
                     </Typography>
                 </CardContent>
             </CardActionArea>

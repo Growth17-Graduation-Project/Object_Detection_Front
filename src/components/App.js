@@ -34,7 +34,7 @@ class App extends Component {
                         <Route path="/past" exact={true} component={Past} />
                         <Route path="/liveCam" exact = {true} component={LiveCam} />
                         <Route path="/signUp" exact = {true} component={SignUp} />
-                        <Route path="/past/:detail" exact={true} component={PastDetail} />
+                        <Route path="/past/detail/:id" exact={true} component={PastDetail} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

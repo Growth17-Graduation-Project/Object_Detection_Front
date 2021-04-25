@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useHistory} from "react-router";
+import axios from "axios";
 
 function Copyright() {
     return (
@@ -147,7 +148,7 @@ export default function SignIn(props) {
                         className={classes.submit}
                         onClick={(e) => {
                         e.preventDefault()
-                        fetch('http://localhost:8000/api/login/', {
+                        fetch('http://localhost:8000/api/signin', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -161,7 +162,10 @@ export default function SignIn(props) {
                             .then(json => {
                                 // user data와 token정보가 일치하면 로그인 성공
                                 if (json.success === 'True') {
-                                    sessionStorage.setItem('wtw-token', json.token)
+                                    sessionStorage.setItem('token', json.token)
+                                    console.log(json.token)
+                                    axios.defaults.headers.common['Authorization'] = `Bearer ${json.token}`
+                                    console.log(sessionStorage.getItem('token'))
                                     //props.userHasAuthenticated(true, json.user.email, json.token);
                                     history.push("/home");
                                     //props.setModal(true)

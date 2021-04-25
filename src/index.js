@@ -7,7 +7,11 @@ import "./styles/index.scss";
 
 //리덕스 쓰고싶으면 밑에 두줄 주석 해제
 import Root from "./Root";
+import axios from "axios";
 ReactDOM.render(<Root />, document.getElementById("root"));
+
+//axios.defaults.baseURL = "";
+//axios.defaults.withCredentials = true;
 
 // ReactDOM.render(
 //   <React.StrictMode>
