@@ -40,7 +40,7 @@ import {List} from "@material-ui/core";
 
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( {
     container: {
         boxShadow: '0px 0px solid white',
         padding: 50,

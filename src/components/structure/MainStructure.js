@@ -6,12 +6,10 @@ import SideBar from "./SideBar";
 import styled from "styled-components";
 
 const Content = styled.div`
-  //margin-left: 240px;
   padding-top: 5rem;
   width: 100%;
   height: 100%;
   left: 0;
-  //width: -240px;
 `;
 
 

@@ -4,7 +4,6 @@ import LoginForm from "../components/main/loginForm";
 
 const Home = () => {
     return <LoginForm>
-
     </LoginForm>;
 };
 
