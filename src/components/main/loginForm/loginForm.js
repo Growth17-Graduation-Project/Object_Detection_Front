@@ -1,6 +1,3 @@
-//
-import sytle from './loginForm.scss';
-
 import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -15,7 +12,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useHistory} from "react-router";
 import axios from "axios";
-import {getCLS} from "web-vitals";
+
 
 function Copyright() {
     return (

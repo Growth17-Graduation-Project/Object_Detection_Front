@@ -19,7 +19,6 @@ const cx = classNames.bind(styles);
 const MainStructure = ({ children }) => (
     <div>
         <Header />
-        {/*<SideBar />*/}
         <Content>{children}</Content>
     </div>
 );

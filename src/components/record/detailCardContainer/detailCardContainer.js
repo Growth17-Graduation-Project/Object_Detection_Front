@@ -12,33 +12,6 @@ import axios from "axios";
 import {NavLink, useHistory, useParams} from "react-router-dom";
 import {List} from "@material-ui/core";
 
-// /* Styled Components */
-// const List = styled.ul`
-//   margin: 0;
-//   padding: 1rem;
-//   align-items: center;
-// `;
-//
-
-
-// /* Main Component Settings */
-// // detailCardContainer().propTypes = {
-// //     className: PropTypes.string,
-// //     items: PropTypes.array,
-// // }
-//
-// /* Exports */
-// export default detailCardContainer;
-
-// /* Main Compoent */
-// const detailCardContainer = props => {
-//     /* Props */
-//     const {
-//         className,
-//         items,
-//     } = props;
-
-
 
 const useStyles = makeStyles( {
     container: {
