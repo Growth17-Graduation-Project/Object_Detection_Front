@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import {Main, Auth, NotFound, SelectCategory, Home, Memo, Past, LiveCam, PastDetail, SignUp} from "../pages";
+import {
+    Main,
+    Auth,
+    NotFound,
+    SelectCategory,
+    Home,
+    Memo,
+    Past,
+    LiveCam,
+    PastDetail,
+    SignUp,
+    PrepareCam
+} from "../pages";
 import '../styles/index.scss'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
@@ -33,6 +45,7 @@ class App extends Component {
                         <Route path="/memo" exact={true} component={Memo} />
                         <Route path="/past" exact={true} component={Past} />
                         <Route path="/liveCam" exact = {true} component={LiveCam} />
+                        <Route path="/cam" exact = {true} component={PrepareCam} />
                         <Route path="/signUp" exact = {true} component={SignUp} />
                         <Route path="/past/detail/:id" exact={true} component={PastDetail} />
                         <Route component={NotFound} />
