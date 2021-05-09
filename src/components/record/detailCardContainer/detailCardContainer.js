@@ -86,7 +86,7 @@ export default function DetailCardContainer() {
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!detailRecords) return null;
-    /* Renderer */
+
     return (
         <List/* className={ className }*/>
             {detailRecords.map((row) => (
@@ -96,26 +96,7 @@ export default function DetailCardContainer() {
                     captureTime = {row.captureTime}
                 />
             ))}
-
-
-            {/*{*/}
-            {/*    items && items.map((opt, idx)=>(*/}
-            {/*        <Detail key={ idx } { ...opt }/>*/}
-            {/*    ))*/}
-            {/*}*/}
         </List>
-        // <div className={ classes.container }>
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        //     <Detail />
-        // </div>
     );
 }
 
