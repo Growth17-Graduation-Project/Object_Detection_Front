@@ -3,76 +3,9 @@ import Webcam from "react-webcam";
 import ReactDOM from "react-dom"
 import {useHistory} from "react-router-dom";
 import axios from "axios";
-
-// const WebcamStreamCapture = () => {
-//     const webcamRef = React.useRef(null);
-//     const mediaRecorderRef = React.useRef(null);
-//     const [capturing, setCapturing] = React.useState(false);
-//     const [recordedChunks, setRecordedChunks] = React.useState([]);
-//
-//
-//     const handleStartCaptureClick = React.useCallback(() => {
-//         setCapturing(true);
-//         mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
-//             mimeType: "video/webm"
-//         });
-//         mediaRecorderRef.current.addEventListener(
-//             "dataavailable",
-//             handleDataAvailable
-//         );
-//         mediaRecorderRef.current.start();
-//     }, [webcamRef, setCapturing, mediaRecorderRef]);
-//
-//     const handleDataAvailable = React.useCallback(
-//         ({ data }) => {
-//             if (data.size > 0) {
-//                 setRecordedChunks((prev) => prev.concat(data));
-//             }
-//         },
-//         [setRecordedChunks]
-//     );
-//
-//     const handleStopCaptureClick = React.useCallback(() => {
-//         mediaRecorderRef.current.stop();
-//         setCapturing(false);
-//     }, [mediaRecorderRef, webcamRef, setCapturing]);
-//
-//     const handleDownload = React.useCallback(() => {
-//         if (recordedChunks.length) {
-//             const blob = new Blob(recordedChunks, {
-//                 type: "video/webm"
-//             });
-//             const url = URL.createObjectURL(blob);
-//             const a = document.createElement("a");
-//             document.body.appendChild(a);
-//             a.style = "display: none";
-//             a.href = url;
-//             a.download = "react-webcam-stream-capture.webm";
-//             a.click();
-//             window.URL.revokeObjectURL(url);
-//             setRecordedChunks([]);
-//         }
-//     }, [recordedChunks]);
-//
-//     return (
-//         <>
-//             <Webcam audio={false} ref={webcamRef} />
-//             {capturing ? (
-//                 <button onClick={handleStopCaptureClick}>Stop Capture</button>
-//             ) : (
-//                 <button onClick={handleStartCaptureClick}>Start Capture</button>
-//             )}
-//             {recordedChunks.length > 0 && (
-//                 <button onClick={handleDownload}>Download</button>
-//             )}
-//         </>
-//     );
-// };
-//
-// ReactDOM.render(<WebcamStreamCapture />, document.getElementById("root"));
-//
-//
-// export default WebcamStreamCapture;
+import Button from "../button";
+import "../button/button.scss";
+//import Button from '@material-ui/core/Button';
 
 
 export default function WebcamStreamCapture() {
@@ -87,6 +20,9 @@ export default function WebcamStreamCapture() {
         history.push('/');
     }
 
+    const recordId = history.location.state.detail
+
+
     useEffect(() => {
         const fetchRecords = async () => {
             try {
@@ -99,7 +35,9 @@ export default function WebcamStreamCapture() {
                 const response = axios.get(
                     'http://localhost:8000/api/video_feed',
                     {headers: {"Authorization": `Bearer ${token}`},
-                    responseType: 'stream'}
+                    responseType: 'stream',
+                    params: {'id': `${recordId}`,}
+                    },
                 ).then(response => {
                     console.log("hi");
                     console.log(`success:${response.data}`)
@@ -108,12 +46,12 @@ export default function WebcamStreamCapture() {
                     imgTag.classList.add('video-modal', 'popup-video')
                     imgTag.setAttribute("crossorigin", '')
                     let streamDiv = document.getElementById('livestream-img')
-                    streamDiv.appendChild(imgTag)
+                    //streamDiv.appendChild(imgTag)
                 }).catch( error => {
                     console.log(`error:${response.data}`)
                     let imgTag = document.createElement('img')
                     let streamDiv = document.getElementById('livestream-img')
-                    streamDiv.appendChild(imgTag)
+                    // streamDiv.appendChild(imgTag)
                 });
                 setRecords(response); // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {
@@ -129,8 +67,37 @@ export default function WebcamStreamCapture() {
     if (!records) return null;
 
     return (
-        <img src="http://localhost:8000/api/video_feed" />
+        <div>
+            <img src="http://localhost:8000/api/video_feed" width='70%' />
+            {/*<Button*/}
+            {/*    onClick={() => {*/}
+            {/*        console.log("ajdjdj")*/}
+            {/*        console.log(recordId)*/}
+            {/*        history.push({*/}
+            {/*            pathname:'/EndCam',*/}
+            {/*            search: '?id='+`${recordId}`,*/}
+            {/*            state: {detail: recordId},*/}
+            {/*        })*/}
+            {/*    }*/}
+            {/*    }*/}
+            {/*>*/}
+            {/*</Button>*/}
+
+            <div className="Button" onClick={() => {
+                console.log("ajdjdj")
+                console.log(recordId)
+                history.push({
+                    pathname:'/EndCam',
+                    search: '?id='+`${recordId}`,
+                    state: {detail: recordId},
+                })
+            }
+            }>
+                완료
+            </div>
+        </div>
     );
 }
+
 
 

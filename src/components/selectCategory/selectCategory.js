@@ -9,7 +9,7 @@ import styled from 'styled-components';
 /* Sub Components */
 import SelectCategoryNav from './selectCategoryNav';
 import BigCategoryNav from "./bigCategoryNav";
-import Button from "./button";
+import Button from "../camera/button";
 
 /* Styled Components */
 const Container = styled.div`

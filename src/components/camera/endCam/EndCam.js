@@ -47,6 +47,11 @@ export default function EndCam() {
     let [title, setTitle] = useState()
     let [etc, setEtc] = useState()
 
+    if (!sessionStorage.getItem("token")) {
+        alert("로그인이 필요한 서비스입니다.");
+        history.push('/');
+    }
+
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value)
@@ -57,12 +62,14 @@ export default function EndCam() {
 
     const classes = useStyles();
 
+    const recordId = history.location.state.detail
+
     return (
         <Container component="main" maxWidth="xs">
-            <CssBaseline />
+            <CssBaseline/>
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <AddAPhotoIcon />
+                    <AddAPhotoIcon/>
                 </Avatar>
                 <Typography component="h2" variant="h6">
                     촬영이 성공적으로 끝났어요!
@@ -78,11 +85,11 @@ export default function EndCam() {
                                 required
                                 fullWidth
                                 name="etc"
-                                rows = {10}
+                                rows={10}
                                 label="비고"
                                 type="etc"
                                 id="etc"
-                                onChange={ handleEtcChange }
+                                onChange={handleEtcChange}
                             />
                         </Grid>
                     </Grid>
@@ -99,29 +106,29 @@ export default function EndCam() {
                             const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
                             const date = new Date();
                             fetch('http://localhost:8000/api/home/record', {
-                                method: 'POST',
+                                method: 'PATCH',
                                 headers: {
                                     'Content-Type': 'application/json',
                                     "Authorization": `Bearer ${token}`
                                 },
+                                params: {'id': `${recordId}`},
                                 body: JSON.stringify({
-                                    title: title,
-                                    startTime: date,
                                     endTime: date,
                                     recordNum: 0,
                                     etc: etc,
-                                    userId: "1",
                                 })
                             })
                                 .then(res => res.json())
                                 .then(json => {
                                     if (json.success === true) {
-                                        history.push("/LiveCam");
+                                        alert("촬영 내역을 성공적으로 저장했습니다.")
+                                        history.push("/home");
                                     } else {
                                         alert("정보 입력에 실패했습니다. 다시 시도해주세요.")
                                     }
                                 })
-                                .catch(error => alert(error));}}
+                                .catch(error => alert(error));
+                        }}
                     >
                         촬영 결과 저장하기
                     </Button>

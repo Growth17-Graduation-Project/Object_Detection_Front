@@ -135,7 +135,12 @@ export default function PrepareCam() {
                                 .then(res => res.json())
                                 .then(json => {
                                     if (json.success === true) {
-                                        history.push("/LiveCam");
+                                        //history.push("/LiveCam/{$id}");
+                                        history.push({
+                                            pathname: '/LiveCam',
+                                            search: '?id='+json.record_id,
+                                            state: { detail: json.record_id }
+                                        })
                                     } else {
                                         alert("정보 입력에 실패했습니다. 다시 시도해주세요.")
                                     }
