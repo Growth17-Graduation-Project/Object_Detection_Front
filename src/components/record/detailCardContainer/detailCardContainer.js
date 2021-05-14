@@ -95,7 +95,7 @@ export default function DetailCardContainer() {
 
     return (
         <List/* className={ className }*/>
-            {detailRecord.map((row) => (
+            {detailRecords.map((row) => (
                 <Detail
                     detectedItem={row.detectedItem}
                     image = {row.image}
