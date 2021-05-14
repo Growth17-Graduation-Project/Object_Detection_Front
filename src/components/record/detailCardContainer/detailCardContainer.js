@@ -11,6 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import {NavLink, useHistory, useParams} from "react-router-dom";
 import {List} from "@material-ui/core";
+import moment from "moment";
 
 // /* Styled Components */
 // const List = styled.ul`
@@ -83,13 +84,18 @@ export default function DetailCardContainer() {
         fetchDetailRecords();
     }, []);
 
+    const detailRecord = detailRecords.map((row) => {
+        row.captureTime = moment(row.captureTime).format("YYYY년 MM월 DD일 HH시 mm분 ss초")
+        return row
+    })
+
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!detailRecords) return null;
 
     return (
         <List/* className={ className }*/>
-            {detailRecords.map((row) => (
+            {detailRecord.map((row) => (
                 <Detail
                     detectedItem={row.detectedItem}
                     image = {row.image}

@@ -9,11 +9,16 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {NavLink, useHistory} from "react-router-dom";
 import axios from 'axios';
+import moment from "moment"
+import Moment from "react-moment";
+import 'moment/locale/ko';
 
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: theme.palette.common.black,
+        fontSize: 18,
+        fontWeight: 'bold',
+        backgroundColor: theme.palette.primary.main,
         color: theme.palette.common.white,
     },
     body: {
@@ -40,6 +45,9 @@ const useStyles = makeStyles({
         boxShadow: 0,
         borderRadius: 5,
         minWidth: 300,
+    },
+    tableHead: {
+        textAlign: "center",
     },
 });
 
@@ -82,12 +90,18 @@ export default function CustomizedTables() {
     if (error) return <div>에러가 발생했습니다</div>;
     if (!records) return null;
 
+    const record = records.map((row) => {
+        row.startTime = moment(row.startTime).format("YYYY년 MM월 DD일 HH시 mm분 ss초")
+        row.endTime = moment(row.endTime).format("YYYY년 MM월 DD일 HH시 mm분 ss초")
+        return row
+    })
+
     return (
         <TableContainer component={Paper} className={classes.container}>
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell> 제목 </StyledTableCell>
+                        <StyledTableCell size="medium"> 제목 </StyledTableCell>
                         <StyledTableCell align="right">시작 날짜</StyledTableCell>
                         <StyledTableCell align="right">끝 날짜 </StyledTableCell>
                         <StyledTableCell align="right">건수</StyledTableCell>
@@ -95,7 +109,7 @@ export default function CustomizedTables() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {records.map((row) => (
+                    {record.map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell component="th" scope="row">
                                 <NavLink to={`/past/detail/${row.id}`}>
