@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexWrap: 'wrap',
         minWidth: 300,
+        marginTop: '10%',
         justifyContent: 'center',
         alignContent: 'center'
     },
@@ -135,7 +136,7 @@ export default function ButtonBases() {
                     <span className={classes.imageButton}>
             <Typography
                 component="span"
-                variant="subtitle1"
+                variant="h5"
                 color="inherit"
                 className={classes.imageTitle}
             >

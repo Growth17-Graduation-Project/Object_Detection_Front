@@ -101,6 +101,7 @@ export default function CustomizedTables() {
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
+                        <StyledTableCell>순번</StyledTableCell>
                         <StyledTableCell size="medium"> 제목 </StyledTableCell>
                         <StyledTableCell align="right">시작 날짜</StyledTableCell>
                         <StyledTableCell align="right">끝 날짜 </StyledTableCell>
@@ -111,6 +112,7 @@ export default function CustomizedTables() {
                 <TableBody>
                     {record.map((row) => (
                         <StyledTableRow key={row.id}>
+                            <StyledTableCell>{row.id}</StyledTableCell>
                             <StyledTableCell component="th" scope="row">
                                 <NavLink to={`/past/detail/${row.id}`}>
                                     {row.title}
