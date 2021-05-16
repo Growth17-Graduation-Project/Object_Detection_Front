@@ -49,6 +49,11 @@ const useStyles = makeStyles({
     tableHead: {
         textAlign: "center",
     },
+    deleteText: {
+        textDecoration: "underline",
+        textDecorationPosition: "under",
+        cursor: "pointer",
+    }
 });
 
 export default function CustomizedTables() {
@@ -102,11 +107,12 @@ export default function CustomizedTables() {
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>순번</StyledTableCell>
-                        <StyledTableCell size="medium"> 제목 </StyledTableCell>
-                        <StyledTableCell align="right">시작 날짜</StyledTableCell>
-                        <StyledTableCell align="right">끝 날짜 </StyledTableCell>
+                        <StyledTableCell> 제목 </StyledTableCell>
+                        <StyledTableCell align="right">시작 시간</StyledTableCell>
+                        <StyledTableCell align="right">끝 시간</StyledTableCell>
                         <StyledTableCell align="right">건수</StyledTableCell>
                         <StyledTableCell align="right">비고 </StyledTableCell>
+                        <StyledTableCell align="right">삭제</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -122,6 +128,41 @@ export default function CustomizedTables() {
                             <StyledTableCell align="right">{row.endTime}</StyledTableCell>
                             <StyledTableCell align="right">{row.recordNum}</StyledTableCell>
                             <StyledTableCell align="right">{row.etc}</StyledTableCell>
+                            <StyledTableCell className={classes.deleteText} align="right"
+                                             // onClick={(e) => {
+                                             //     e.preventDefault()
+                                             //     let token = sessionStorage.getItem('token');
+                                             //     console.log(token);
+                                             //     fetch('http://localhost:8000/api/home/record', {
+                                             //         method: 'POST',
+                                             //         headers: {
+                                             //             'Content-Type': 'application/json',
+                                             //             "Authorization": `Bearer ${token}`
+                                             //         },
+                                             //         body: JSON.stringify({
+                                             //             title: title,
+                                             //             startTime: date,
+                                             //             endTime: date,
+                                             //             recordNum: 0,
+                                             //             etc: etc,
+                                             //             userId: "1",
+                                             //         })
+                                             //     })
+                                             //         .then(res => res.json())
+                                             //         .then(json => {
+                                             //             if (json.success === true) {
+                                             //                 //history.push("/LiveCam/{$id}");
+                                             //                 history.push({
+                                             //                     pathname: '/LiveCam',
+                                             //                     search: '?id='+json.record_id,
+                                             //                     state: { detail: json.record_id }
+                                             //                 })
+                                             //             } else {
+                                             //                 alert("정보 입력에 실패했습니다. 다시 시도해주세요.")
+                                             //             }
+                                             //         })
+                                             //         .catch(error => alert(error));}}
+                            >(X)</StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>

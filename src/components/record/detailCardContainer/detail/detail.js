@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function MediaCard({detectedItem, image, captureTime}) {
+export default function MediaCard({id, detectedItem, image, captureTime}) {
     const classes = useStyles();
 
     return (
@@ -39,14 +39,6 @@ export default function MediaCard({detectedItem, image, captureTime}) {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            {/*<CardActions>*/}
-            {/*    <Button size="small" color="primary">*/}
-            {/*        Share*/}
-            {/*    </Button>*/}
-            {/*    <Button size="small" color="primary">*/}
-            {/*        Learn More*/}
-            {/*    </Button>*/}
-            {/*</CardActions>*/}
         </Card>
     );
 }
