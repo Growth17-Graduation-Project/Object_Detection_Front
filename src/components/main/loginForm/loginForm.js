@@ -30,9 +30,14 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#0B0B3B",
     },
     logo: {
-        marginTop: '1em',
+        // marginTop: '1em',
         textAlign: 'center',
-        fontSize: '5em',
+        fontWeight: 'bold',
+        fontSize: '4.5em',
+    },
+    description: {
+        marginTop: '5em',
+        fontSize: '1em',
     },
     back: {
         backgroundColor: "white",
@@ -109,8 +114,11 @@ export default function SignIn(props) {
         <Container component="main" maxWidth="xs" className={classes.back}>
             <CssBaseline/>
             <div className={classes.paper}>
+                <div className={classes.description}>
+                    도서관 출입 반입 금지 물품 탐지 시스템
+                </div>
                 <div className={classes.logo}>
-                    시스템 제목
+                    AUTO.DETECT
                 </div>
                 <div className={classes.iconLogin}>
                     <Avatar className={classes.avatar}>
@@ -127,7 +135,7 @@ export default function SignIn(props) {
                         required
                         fullWidth
                         id="emaile"
-                        label="아이디"
+                        label="이메일"
                         name="email"
                         autoComplete="email"
                         autoFocus
@@ -173,7 +181,9 @@ export default function SignIn(props) {
                                 // user data와 token정보가 일치하면 로그인 성공
                                 if (json.success === 'True') {
                                     sessionStorage.setItem('token', json.token)
+                                    sessionStorage.setItem('id', json.id)
                                     console.log(json.token)
+                                    console.log(json.id)
                                     axios.defaults.headers.common['Authorization'] = `Bearer ${json.token}`
                                     console.log(sessionStorage.getItem('token'))
                                     //props.userHasAuthenticated(true, json.user.email, json.token);

@@ -77,10 +77,16 @@ export default function CustomizedTables() {
                 setRecords(null);
                 setLoading(true);
                 let token = sessionStorage.getItem('token');
+                let userId = sessionStorage.getItem('id');
+                console.log(userId);
                 console.log(token);
                 const response = await axios.get(
                     'http://localhost:8000/api/home/record',
-                     {headers: {"Authorization": `Bearer ${token}`}}
+                     {headers: {"Authorization": `Bearer ${token}`},
+                         body: JSON.stringify({
+                             userId: userId,
+                         })
+                     }
                 );
                 setRecords(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {

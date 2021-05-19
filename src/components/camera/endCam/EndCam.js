@@ -105,7 +105,7 @@ export default function EndCam() {
                             console.log(token);
                             const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
                             const date = new Date();
-                            fetch('http://localhost:8000/api/home/record', {
+                            fetch(`http://localhost:8000/api/home/record/${recordId}`, {
                                 method: 'PATCH',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -113,9 +113,11 @@ export default function EndCam() {
                                 },
                                 params: {'id': `${recordId}`},
                                 body: JSON.stringify({
+                                    id: recordId,
                                     endTime: date,
                                     recordNum: 0,
                                     etc: etc,
+                                    userId: 1,
                                 })
                             })
                                 .then(res => res.json())
@@ -124,6 +126,7 @@ export default function EndCam() {
                                         alert("촬영 내역을 성공적으로 저장했습니다.")
                                         history.push("/home");
                                     } else {
+                                        console.log(json)
                                         alert("정보 입력에 실패했습니다. 다시 시도해주세요.")
                                     }
                                 })

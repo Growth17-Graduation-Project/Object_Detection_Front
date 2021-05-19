@@ -19,7 +19,8 @@ export default function Header() {
     return (
         <div className={cx("header")}>
             <Link to={"/home"} className={cx("logo")}>
-                시스템 제목
+                Auto.Detect
+                <div className={cx("description")}> 도서관 출입 반입 금지 물품 탐지 시스템</div>
             </Link>
             <div className={cx("logout")}>
                 <MdLockOpen onClick={OnLogout}/>

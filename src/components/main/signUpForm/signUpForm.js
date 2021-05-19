@@ -62,7 +62,7 @@ export default function SignUp() {
     const history = useHistory()
 
     let [email, setEmail] = useState()
-    let [username, setUsername] = useState()
+    let [repassword, setRepassword] = useState()
     let [realUserName, setRealUserName] = useState()
     let [birthDate, setBirthDate] = useState()
     let [password, setPassword] = useState()
@@ -70,8 +70,8 @@ export default function SignUp() {
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
     }
-    const handleUserNameChange = (e) => {
-        setUsername(e.target.value)
+    const handleRePasswordChange = (e) => {
+        setRepassword(e.target.value)
     }
     const handleRealUserNameChange = (e) => {
         setRealUserName(e.target.value)
@@ -126,11 +126,11 @@ export default function SignUp() {
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="username"
-                                label="아이디"
-                                name="username"
-                                autoComplete="id"
-                                onChange={handleUserNameChange}
+                                id="email"
+                                label="이메일 주소"
+                                name="email"
+                                autoComplete="email"
+                                onChange={handleEmailChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -143,18 +143,6 @@ export default function SignUp() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                name="password"
-                                label="비밀번호 재확인"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
                                 onChange={handlePasswordChange}
                             />
                         </Grid>
@@ -163,11 +151,12 @@ export default function SignUp() {
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="email"
-                                label="이메일 주소"
-                                name="email"
-                                autoComplete="email"
-                                onChange={handleEmailChange}
+                                name="repassword"
+                                label="비밀번호 재확인"
+                                type="password"
+                                id="repassword"
+                                autoComplete="current-password"
+                                onChange={handleRePasswordChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -208,18 +197,16 @@ export default function SignUp() {
                                 },
                                 body: JSON.stringify({
                                     email: email,
-                                    username: username,
+                                    username: "아이디값 없음",
                                     realUserName: realUserName,
-                                    birthDate: "2020-11-11",
+                                    birthDate: birthDate,
+                                    repassword: repassword,
                                     password: password
                                 })
                             })
                                 .then(res => res.json())
                                 .then(json => {
-                                    // user data와 token정보가 일치하면 로그인 성공
-                                    alert(email)
                                     if (json.message === 'ok') {
-                                        //props.userHasAuthenticated(true, json.user.email, json.token);
                                         history.push("/");
                                         //props.setModal(true)
                                         alert("회원가입이 완료되었습니다.")
