@@ -33,7 +33,7 @@ export default function WebcamStreamCapture() {
                 let token = sessionStorage.getItem('token');
                 console.log(token);
                 const response = axios.get(
-                    'http://localhost:8000/api/video_feed',
+                    '/api/video_feed',
                     {headers: {"Authorization": `Bearer ${token}`},
                     responseType: 'stream',
                     params: {'id': `${recordId}`,}
@@ -68,7 +68,7 @@ export default function WebcamStreamCapture() {
 
     return (
         <div>
-            <img src="http://localhost:8000/api/video_feed" width='70%' />
+            <img src="/api/video_feed" width='70%' />
             {/*<Button*/}
             {/*    onClick={() => {*/}
             {/*        console.log("ajdjdj")*/}

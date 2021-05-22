@@ -105,7 +105,7 @@ export default function EndCam() {
                             console.log(token);
                             const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
                             const date = new Date();
-                            fetch(`http://localhost:8000/api/home/record/${recordId}`, {
+                            fetch(`/api/home/record/${recordId}`, {
                                 method: 'PATCH',
                                 headers: {
                                     'Content-Type': 'application/json',

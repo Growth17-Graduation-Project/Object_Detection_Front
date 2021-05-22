@@ -10,6 +10,7 @@ import Root from "./Root";
 import axios from "axios";
 ReactDOM.render(<Root />, document.getElementById("root"));
 
+
 //axios.defaults.baseURL = "";
 //axios.defaults.withCredentials = true;
 

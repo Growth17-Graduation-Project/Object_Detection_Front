@@ -14,6 +14,8 @@ import Moment from "react-moment";
 import 'moment/locale/ko';
 
 
+
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
         fontSize: 18,
@@ -81,7 +83,7 @@ export default function CustomizedTables() {
                 console.log(userId);
                 console.log(token);
                 const response = await axios.get(
-                    'http://localhost:8000/api/home/record',
+                    '/api/home/record',
                      {headers: {"Authorization": `Bearer ${token}`},
                          body: JSON.stringify({
                              userId: userId,

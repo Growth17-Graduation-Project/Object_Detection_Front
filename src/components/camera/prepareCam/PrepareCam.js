@@ -117,7 +117,7 @@ export default function PrepareCam() {
                             console.log(token);
                             const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
                             const date = new Date();
-                            fetch('http://localhost:8000/api/home/record', {
+                            fetch('/api/home/record', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',

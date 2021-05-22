@@ -86,7 +86,7 @@ export default function DetailCardContainer() {
                 console.log("hihjihihihihi")
                 let token = sessionStorage.getItem('token');
                 const response = await axios.get(
-                    `http://localhost:8000/api/home/record/detail/${id}`,
+                    `/api/home/record/detail/${id}`,
                 {headers: {"Authorization": `Bearer ${token}`}}
                 );
                 console.log(response.data)

@@ -17,6 +17,8 @@ import {useHistory} from "react-router";
 import axios from "axios";
 import {getCLS} from "web-vitals";
 
+
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center" marginBottom='3px'>
@@ -166,7 +168,7 @@ export default function SignIn(props) {
                         className={classes.submit}
                         onClick={(e) => {
                         e.preventDefault()
-                        fetch('http://localhost:8000/api/signin', {
+                        fetch(`/api/signin`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
