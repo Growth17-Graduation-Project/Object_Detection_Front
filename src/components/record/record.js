@@ -141,7 +141,7 @@ export default function CustomizedTables() {
                                              //     e.preventDefault()
                                              //     let token = sessionStorage.getItem('token');
                                              //     console.log(token);
-                                             //     fetch('http://localhost:8000/api/home/record', {
+                                             //     fetch('api/home/record', {
                                              //         method: 'POST',
                                              //         headers: {
                                              //             'Content-Type': 'application/json',

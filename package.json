@@ -2,7 +2,6 @@
   "name": "gp_front",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://ec2-54-180-99-90.ap-northeast-2.compute.amazonaws.com:8080",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@material-ui/core": "^4.11.3",
@@ -168,5 +167,6 @@
     "axios": "^0.21.1",
     "moment": "^2.29.1",
     "react-moment": "^1.1.1"
-  }
+  },
+  "proxy": "http://ec2-54-180-99-90.ap-northeast-2.compute.amazonaws.com:8080"
 }
