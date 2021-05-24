@@ -5,7 +5,7 @@ import Auth from "../components/auth/AuthForm"
 
 const LiveCam = () => {
     return <MainStructure>
-        <Auth />
+        {/*<Auth />*/}
         <LiveCamera> </LiveCamera>
     </MainStructure>;
 };
