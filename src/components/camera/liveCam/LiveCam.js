@@ -124,9 +124,12 @@ export default function Viewer() {
     //     history.push('/');
     // }
 
+    const recordId = history.location.state.detail
+
 
     const webcamRef = useRef(null);
     const [capturedImg, setCapturedImg] = useState(null);
+    const [returnImg, setReturnImg] = useState(null);
     const [prediction, setPrediction] = useState("");
 
     const [isPaused, setPause] = useState(false);
@@ -169,13 +172,19 @@ export default function Viewer() {
         facingMode: "user", // Can be "environment" or "user"
     };
 
-    const capture = useCallback(() => {
+    // const capture = useCallback(() => {
+    //     const capturedImg = webcamRef.current.getScreenshot();
+    //     setCapturedImg(capturedImg);
+    //     //console.log(capturedImg);
+    //     //sendMessage(capturedImg);
+    // }, [webcamRef]);
+
+    const capture = ()=> {
         const capturedImg = webcamRef.current.getScreenshot();
         setCapturedImg(capturedImg);
         //console.log(capturedImg);
         //sendMessage(capturedImg);
-    }, [webcamRef]);
-
+    };
 
     // const response =  axios.get(
     //     '/api/home/record',
@@ -190,32 +199,25 @@ export default function Viewer() {
     let token = sessionStorage.getItem('token');
 
     const sendImage = () => {
-        capture()
-        console.log(capturedImg)
+        const capturedImg = webcamRef.current.getScreenshot();
+        console.log("before post")
 
         const response = axios.post(
-            capturedImg,
+            `/api/video_feed/${recordId}`,
             {
                 headers: {"Authorization": `Bearer ${token}`, "Content-Type": "multipart/form-data"},
-                body: {"data": capturedImg}
+                "imageBase64": capturedImg
             }
         ).then(response => {
-            console.log("hi");
+            console.log("after post");
+            console.log(response);
             console.log(`success:${response.data}`)
-            let imgTag = document.createElement('img')
-            imgTag.src = URL.createObjectURL(response)
-            imgTag.classList.add('video-modal', 'popup-video')
-            imgTag.setAttribute("crossorigin", '')
-            let streamDiv = document.getElementById('livestream-img')
-            //streamDiv.appendChild(imgTag)
+            const returnImg = response.data
         }).catch(error => {
             console.log(`error:${response.data}`)
-            let imgTag = document.createElement('img')
-            let streamDiv = document.getElementById('livestream-img')
-            // streamDiv.appendChild(imgTag)
         });
-
-
+        console.log(returnImg)
+        return returnImg;
     }
 
     setInterval(sendImage, 500)
@@ -235,10 +237,25 @@ export default function Viewer() {
             {capturedImg && <img src={capturedImg} width="50%"/>}
 
             {/*<script>setInterval(sendImage, 5000)</script>*/}
+            {returnImg && <img src={returnImg} width="50%"/>}
 
             <p>
                 <h3>{prediction && prediction}</h3>
             </p>
+
+            <div className="Button" onClick={() => {
+                console.log("ajdjdj")
+                console.log(recordId)
+                history.push({
+                    pathname:'/EndCam',
+                    search: '?id='+`${recordId}`,
+                    state: {detail: recordId},
+                })
+            }
+            }>
+                완료
+            </div>
+
         </Wrapper>
     );
 }
