@@ -124,7 +124,7 @@ export default function EndCam() {
                                 .then(json => {
                                     if (json.success === true) {
                                         alert("촬영 내역을 성공적으로 저장했습니다.")
-                                        history.push("/home");
+                                        history.push("/Object_Detection_Front/home");
                                     } else {
                                         console.log(json)
                                         alert("정보 입력에 실패했습니다. 다시 시도해주세요.")

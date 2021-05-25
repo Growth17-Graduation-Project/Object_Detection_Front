@@ -247,7 +247,7 @@ export default function Viewer() {
                 console.log("ajdjdj")
                 console.log(recordId)
                 history.push({
-                    pathname:'/EndCam',
+                    pathname:'/Object_Detection_Front/EndCam',
                     search: '?id='+`${recordId}`,
                     state: {detail: recordId},
                 })

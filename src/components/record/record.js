@@ -128,7 +128,7 @@ export default function CustomizedTables() {
                         <StyledTableRow key={row.id}>
                             <StyledTableCell>{row.id}</StyledTableCell>
                             <StyledTableCell component="th" scope="row">
-                                <NavLink to={`/past/detail/${row.id}`}>
+                                <NavLink to={`/Object_Detection_Front/past/detail/${row.id}`}>
                                     {row.title}
                                 </NavLink>
                             </StyledTableCell>

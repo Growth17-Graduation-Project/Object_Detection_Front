@@ -13,13 +13,13 @@ const images = [
         url: 'https://cdn.pixabay.com/photo/2015/06/08/15/11/camera-801924_960_720.jpg',
         title: '촬영하러 가기',
         width: '40%',
-        imageLink: '/startCam',
+        imageLink: '/Object_Detection_Front/startCam',
     },
     {
         url: 'https://cdn.pixabay.com/photo/2016/12/29/21/17/notebook-1939358_960_720.jpg',
         title: '과거기록 보기',
         width: '40%',
-        imageLink: '/past',
+        imageLink: '/Object_Detection_Front/past',
     },
 
 ];

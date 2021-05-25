@@ -18,7 +18,7 @@ export default function Header() {
     }
     return (
         <div className={cx("header")}>
-            <Link to={"/home"} className={cx("logo")}>
+            <Link to={"/Object_Detection_Front/home"} className={cx("logo")}>
                 Auto.Detect
                 <div className={cx("description")}> 도서관 출입 반입 금지 물품 탐지 시스템</div>
             </Link>

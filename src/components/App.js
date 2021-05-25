@@ -39,17 +39,17 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
                 <div>
                     <Switch>
-                        <Route path="/" exact={true} component={Home} />
-                        <Route path="/home" exact={true} component={Main} />
-                        <Route path="/auth/:kind" exact={true} component={Auth} />
-                        <Route path="/selectCategory" exact={true} component={SelectCategory} />
-                        <Route path="/memo" exact={true} component={Memo} />
-                        <Route path="/past" exact={true} component={Past} />
-                        <Route path="/liveCam" exact = {true} component={LiveCam} />
-                        <Route path="/startCam" exact = {true} component={PrepareCam} />
-                        <Route path="/endCam" exact = {true} component={EndCam} />
-                        <Route path="/signUp" exact = {true} component={SignUp} />
-                        <Route path="/past/detail/:id" exact={true} component={PastDetail} />
+                        <Route path="/Object_Detection_Front/" exact={true} component={Home} />
+                        <Route path="/Object_Detection_Front/home" exact={true} component={Main} />
+                        <Route path="/Object_Detection_Front/auth/:kind" exact={true} component={Auth} />
+                        <Route path="/Object_Detection_Front/selectCategory" exact={true} component={SelectCategory} />
+                        <Route path="/Object_Detection_Front/memo" exact={true} component={Memo} />
+                        <Route path="/Object_Detection_Front/past" exact={true} component={Past} />
+                        <Route path="/Object_Detection_Front/liveCam" exact = {true} component={LiveCam} />
+                        <Route path="/Object_Detection_Front/startCam" exact = {true} component={PrepareCam} />
+                        <Route path="/Object_Detection_Front/endCam" exact = {true} component={EndCam} />
+                        <Route path="/Object_Detection_Front/signUp" exact = {true} component={SignUp} />
+                        <Route path="/Object_Detection_Front/past/detail/:id" exact={true} component={PastDetail} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>
