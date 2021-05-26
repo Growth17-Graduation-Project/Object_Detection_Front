@@ -68,7 +68,7 @@ export default function CustomizedTables() {
 
     if (!sessionStorage.getItem("token")) {
         alert("로그인이 필요한 서비스입니다.");
-        history.push('/Object_Detection_Front/');
+        history.push('/');
     }
 
     useEffect(() => {
@@ -128,7 +128,7 @@ export default function CustomizedTables() {
                         <StyledTableRow key={row.id}>
                             <StyledTableCell>{row.id}</StyledTableCell>
                             <StyledTableCell component="th" scope="row">
-                                <NavLink to={`/Object_Detection_Front/past/detail/${row.id}`}>
+                                <NavLink to={`/past/detail/${row.id}`}>
                                     {row.title}
                                 </NavLink>
                             </StyledTableCell>
