@@ -1,3 +1,5 @@
+
+
 // import React, {useEffect, useState} from "react";
 // import Webcam from "react-webcam";
 // import ReactDOM from "react-dom"
@@ -126,7 +128,7 @@ export default function Viewer() {
 
     const recordId = history.location.state.detail
 
-    const canvasRef = useRef(null);
+
     const webcamRef = useRef(null);
     const [capturedImg, setCapturedImg] = useState(null);
     const [returnImg, setReturnImg] = useState(null);
@@ -221,70 +223,42 @@ export default function Viewer() {
     }
 
     setInterval(sendImage, 500)
-    const MyComponent = props => {
-        const webcamRef = useRef(null);
-        const canvasRef = useRef(null);
 
-        function drawImge() {
-            const video = webcamRef.current;
-            const canvas = canvasRef.current;
-            if (video && canvas) {
-                var ctx = canvas.getContext('2d');
-                canvas.width = video.video.videoWidth;
-                canvas.height = video.video.videoHeight;
-                // We want also the canvas to display de image mirrored
-                ctx.translate(canvas.width, 0);
-                ctx.scale(-1, 1);
-                ctx.drawImage(video.video, 0, 0, canvas.width, canvas.height);
-                ctx.scale(-1, 1);
-                ctx.translate(-canvas.width, 0);
-                var faceArea = 300;
-                var pX = canvas.width / 2 - faceArea / 2;
-                var pY = canvas.height / 2 - faceArea / 2;
-                ctx.rect(pX, pY, faceArea, faceArea);
-                ctx.lineWidth = "6";
-                ctx.strokeStyle = "red";
-                ctx.stroke();
-                setTimeout(drawImge, 33);
+    return (
+        <Wrapper>
+            <Webcam
+                audio={false}
+                ref={webcamRef}
+                screenshotFormat="image/jpeg"
+                width="50%"
+                videoConstraints={videoConstraints}
+            />
+            <p>
+                {/*<button onClick={capture}>Capture photo</button>*/}
+            </p>
+            {capturedImg && <img src={capturedImg} width="50%"/>}
+
+            {/*<script>setInterval(sendImage, 5000)</script>*/}
+            {returnImg && <img src={returnImg} width="50%"/>}
+
+            <p>
+                <h3>{prediction && prediction}</h3>
+            </p>
+
+            <div className="Button" onClick={() => {
+                console.log("ajdjdj")
+                console.log(recordId)
+                history.push({
+                    pathname:'/Object_Detection_Front/EndCam',
+                    search: '?id='+`${recordId}`,
+                    state: {detail: recordId},
+                })
             }
-        }
-        setTimeout(drawImge, 33);
-    }
-        return (
-            <Wrapper>
-                <Webcam
-                    audio={false}
-                    ref={webcamRef}
-                    screenshotFormat="image/jpeg"
-                    width="50%"
-                    videoConstraints={videoConstraints}
-                />
-                <canvas ref={canvasRef} />
-                <p>
-                    {/*<button onClick={capture}>Capture photo</button>*/}
-                </p>
-                {capturedImg && <img src={capturedImg} width="50%"/>}
+            }>
+                완료
+            </div>
 
-                {/*<script>setInterval(sendImage, 5000)</script>*/}
-                {returnImg && <img src={returnImg} width="50%"/>}
+        </Wrapper>
+    );
+}
 
-                <p>
-                    <h3>{prediction && prediction}</h3>
-                </p>
-
-                <div className="Button" onClick={() => {
-                    console.log("ajdjdj")
-                    console.log(recordId)
-                    history.push({
-                        pathname:'/Object_Detection_Front/EndCam',
-                        search: '?id='+`${recordId}`,
-                        state: {detail: recordId},
-                    })
-                }
-                }>
-                    완료
-                </div>
-
-            </Wrapper>
-        );
-    }
