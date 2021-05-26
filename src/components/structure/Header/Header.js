@@ -14,7 +14,7 @@ export default function Header() {
     const OnLogout = async () => {
         sessionStorage.removeItem("token");
         alert("로그아웃이 완료되었습니다.");
-        history.push('/')
+        history.push('/Object_Detection_Front/')
     }
     return (
         <div className={cx("header")}>

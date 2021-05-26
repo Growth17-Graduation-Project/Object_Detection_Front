@@ -110,7 +110,7 @@ export default function ButtonBases() {
 
     if (!sessionStorage.getItem("token")) {
         alert("로그인이 필요한 서비스입니다.");
-        history.push('/');
+        history.push('/Object_Detection_Front/');
     }
 
     return (
