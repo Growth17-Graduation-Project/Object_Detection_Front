@@ -1,7 +1,7 @@
 {
-  "homepage": "https://jangbomi.github.io/Object_Detection_Front/",
   "name": "gp_front",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
