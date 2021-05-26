@@ -49,7 +49,7 @@ export default function EndCam() {
 
     if (!sessionStorage.getItem("token")) {
         alert("로그인이 필요한 서비스입니다.");
-        history.push('/Object_Detection_Front/');
+        history.push('/');
     }
 
 
@@ -124,7 +124,7 @@ export default function EndCam() {
                                 .then(json => {
                                     if (json.success === true) {
                                         alert("촬영 내역을 성공적으로 저장했습니다.")
-                                        history.push("/Object_Detection_Front/home");
+                                        history.push("/home");
                                     } else {
                                         console.log(json)
                                         alert("정보 입력에 실패했습니다. 다시 시도해주세요.")

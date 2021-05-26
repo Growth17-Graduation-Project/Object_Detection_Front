@@ -189,7 +189,7 @@ export default function SignIn(props) {
                                     axios.defaults.headers.common['Authorization'] = `Bearer ${json.token}`
                                     console.log(sessionStorage.getItem('token'))
                                     //props.userHasAuthenticated(true, json.user.email, json.token);
-                                    history.push("/Object_Detection_Front/home");
+                                    history.push("/home");
                                     //props.setModal(true)
                                     alert("반갑습니다 :)")
                                 } else {

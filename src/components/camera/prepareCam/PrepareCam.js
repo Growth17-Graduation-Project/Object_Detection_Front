@@ -137,7 +137,7 @@ export default function PrepareCam() {
                                     if (json.success === true) {
                                         //history.push("/LiveCam/{$id}");
                                         history.push({
-                                            pathname: '/Object_Detection_Front/LiveCam',
+                                            pathname: '/LiveCam',
                                             search: '?id='+json.record_id,
                                             state: { detail: json.record_id }
                                         })
