@@ -2,6 +2,8 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
+import NoFound from "../../errorPage/noRecord";
+
 /* Styled */
 import styled from 'styled-components';
 
@@ -83,7 +85,6 @@ export default function DetailCardContainer() {
                 setError(null);
                 setDetailRecords(null);
                 setLoading(true);
-                console.log("hihjihihihihi")
                 let token = sessionStorage.getItem('token');
                 let userId = sessionStorage.getItem('id')
                 console.log(userId)
@@ -119,6 +120,11 @@ export default function DetailCardContainer() {
     })
 
     console.log(detailRecord);
+
+    if (detailRecord.length===0) {
+        console.log("hfdasfadsfi")
+        return <NoFound/>
+    }
 
     return (
         <div/* className={ className }*/>
