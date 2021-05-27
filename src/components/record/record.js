@@ -82,15 +82,27 @@ export default function CustomizedTables() {
                 let userId = sessionStorage.getItem('id');
                 console.log(userId);
                 console.log(token);
-                const response = await axios.get(
-                    '/api/home/record',
-                     {headers: {"Authorization": `Bearer ${token}`},
-                         body: JSON.stringify({
-                             userId: userId,
-                         })
-                     }
-                );
-                setRecords(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+                // const response = await axios.get(
+                //     '/api/home/record',
+                //     {params: {userId: userId},
+                //     {headers: {"Authorization": `Bearer ${token}`}
+                //     }},
+                // );
+
+                fetch(`/api/home/record/all/${userId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Authorization": `Bearer ${token}`
+                    },
+                })
+                    .then(res => res.json())
+                    .then(json => {
+                        console.log(json.data)
+                        setRecords(json.data);
+                    }
+                    )
+                 // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {
                 setError(e);
             }
@@ -128,7 +140,7 @@ export default function CustomizedTables() {
                         <StyledTableRow key={row.id}>
                             <StyledTableCell>{row.id}</StyledTableCell>
                             <StyledTableCell component="th" scope="row">
-                                <NavLink to={`/past/detail/${row.id}`}>
+                                <NavLink to={`/past/${row.id}`}>
                                     {row.title}
                                 </NavLink>
                             </StyledTableCell>

@@ -12,7 +12,7 @@ import {
     PastDetail,
     SignUp,
     PrepareCam,
-    EndCam
+    EndCam, PastDetailDetail
 } from "../pages";
 import '../styles/index.scss'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -49,7 +49,8 @@ class App extends Component {
                         <Route path="/startCam" exact = {true} component={PrepareCam} />
                         <Route path="/endCam" exact = {true} component={EndCam} />
                         <Route path="/signUp" exact = {true} component={SignUp} />
-                        <Route path="/past/detail/:id" exact={true} component={PastDetail} />
+                        <Route path="/past/:id" exact={true} component={PastDetail} />
+                        <Route path="/past/:id/detail" exact={true} component={PastDetailDetail} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

@@ -114,6 +114,7 @@ export default function PrepareCam() {
                         onClick={(e) => {
                             e.preventDefault()
                             let token = sessionStorage.getItem('token');
+                            let userId = sessionStorage.getItem('id')
                             console.log(token);
                             const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
                             const date = new Date();
@@ -129,7 +130,7 @@ export default function PrepareCam() {
                                     endTime: date,
                                     recordNum: 0,
                                     etc: etc,
-                                    userId: "1",
+                                    userId: userId,
                                 })
                             })
                                 .then(res => res.json())

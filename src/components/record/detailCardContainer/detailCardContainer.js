@@ -85,9 +85,12 @@ export default function DetailCardContainer() {
                 setLoading(true);
                 console.log("hihjihihihihi")
                 let token = sessionStorage.getItem('token');
+                let userId = sessionStorage.getItem('id')
+                console.log(userId)
                 const response = await axios.get(
                     `/api/home/record/detail/${id}`,
                 {headers: {"Authorization": `Bearer ${token}`}}
+
                 );
                 console.log(response.data)
                 console.log(response.data.data)
@@ -114,6 +117,8 @@ export default function DetailCardContainer() {
         row.captureTime = moment(row.captureTime).format("YYYY년 MM월 DD일 HH시 mm분 ss초")
         return row
     })
+
+    console.log(detailRecord);
 
     return (
         <div/* className={ className }*/>

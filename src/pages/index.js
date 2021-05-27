@@ -8,5 +8,6 @@ export { default as Past } from "./Past";
 export { default as LiveCam } from "./LiveCam";
 export { default as PrepareCam } from "./PrepareCam";
 export { default as PastDetail } from "./PastDetail";
+export { default as PastDetailDetail } from "./PastDetailDetail";
 export { default as SignUp } from "./SignUp";
 export { default as EndCam } from "./EndCam";
