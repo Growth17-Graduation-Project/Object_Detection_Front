@@ -139,7 +139,7 @@ export default function Viewer() {
 
     //setTimeout(drawImge, 100);
 
-    let timer = setInterval(drawImge, 1000)
+    let timer = setInterval(drawImge, 300)
 
     //setInterval(sendImage, 1000)
 
